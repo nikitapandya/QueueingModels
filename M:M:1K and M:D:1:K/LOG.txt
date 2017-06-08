@@ -1,0 +1,172 @@
+M/M/1/K: 
+
+TO RUN: Compile and run the KSimulation.java file 
+and input K, lambda, service time and run time - in this order
+
+——————————————————————————————————————————————————————————————————————————————
+
+PARTA: K=3 lambda=50 Ts=.02 RunTime=100
+
+Expected Results: 
+rho = 50*0.02 = 1
+q = K/2 = 1.5
+w = 0.732
+
+Pr(rejection) = 1/4 = 0.25
+lambda’ = .25(.75) = 37.5
+
+Tq = 1.5/37.5 = 0.039
+Tw = 0.732/37.5 = 0.019
+
+Simulated Results: 
+q	=	1.483298969072165
+w	=	0.7888659793814433
+Tq	=	0.0396659793814433
+Tw	=	0.015777319587628867
+         
+Number of Total Events: 8850
+Number of drops aka Rejection Probability: 0.24058262179809142
+         
+Confidence interval of Tq: [-0.012802919342290161,0.07213487810517676]
+Confidence interval of q: [-0.1050786956657756,3.0716766338101055]
+> 
+
+——————————————————————————————————————————————————————————————————————————————
+
+PARTB: K=3 lambda=50 Ts=.015 RunTime=100
+
+Expected Results: 
+rho = 50*0.015 = .75
+q = 1.15
+w = 0.51
+
+Pr(rejection) = 3/20 = 0.15
+lambda’ = ((.25)(.75^3))/(1-.75^4) = 42.59
+
+Tq = 1.15/42.59 = 0.027
+Tw = 0.51/42.59 = 0.012
+
+Simulator Results
+q	=	1.1608386075949367
+w	=	0.6213607594936709
+Tq	=	0.02721677215189873
+Tw	=	0.013427215189873418
+         
+Number of drops aka Rejection Probability: 0.15246263662725854
+         
+Confidence interval of Tq: [-0.012188076388027658,0.07062162069182512]
+Confidence interval of q: [-0.1030917457343383,3.0547689609242116]
+>
+
+——————————————————————————————————————————————————————————————————————————————
+
+PARTC: K=3 lambda=65 Ts=.015 RunTime=100
+
+Expected Results: 
+rho = 65*0.015 = .975
+q = 1.46
+w = 0.73
+
+Pr(rejection) = .24
+lambda’ = ((1-.975)(.975^3))/(1-.975^4) = 62.59
+
+Tq = 1.46/62.23 = 0.029
+Tw = 0.73/62.23 = 0.015
+
+Simulator Results
+q	=	1.4547018844609205
+w	=	0.718789002162496
+Tq	=	0.02991849053016801
+Tw	=	0.015827523110192246
+         
+Number of drops aka Rejection Probability: 0.23996765859726343
+         
+Confidence interval of Tq: [-0.011633379581933907,0.07147036064226993]
+Confidence interval of q: [-0.21770675395213668,4.1071105228739775]
+> 
+
+——————————————————————————————————————————————————————————————————————————————
+REJECTION PR & CONFIDENCE INTERVALS COMPARISON AND ANALYSIS: 
+
+The confidence intervals for the three test cases are very accurate. 
+The q and Tq for each test case fit in their corresponding confidence 
+intervals. All three confidence intervals for Tq are almost the same; 
+however, the confidence intervals for q for part A and B are fairly the same 
+while the q interval for part C is a bit bigger. We can conclude that this is 
+probably due to the higher lambda of 65. We can also conclude that the service
+time Ts probably does not effect the confidence intervals of Tq or q, because
+there is barely a difference in either interval in part A and B. 
+
+In addition, the expected/calculated rejection probability for all the test 
+cases are (almost) the same as the simulated results.
+
+——————————————————————————————————————————————————————————————————————————————
+M/D/1/K: **no expected results because cannot be calculated by hand**
+
+TO RUN: Compile and run the DKSimulation.java file 
+and input K, lambda, service time and run time - in this order
+
+——————————————————————————————————————————————————————————————————————————————
+
+PARTD: K=3 lambda=50 Ts=.015 RunTime=100
+
+Simulator Results
+q	=	1.0
+w	=	0.0
+Tq	=	0.02
+Tw	=	0.0
+         
+Number of Total Events: 13334
+Number of drops aka Rejection Probability: 0.0
+         
+Confidence interval of Tq: [-0.009399999853000395,0.04939999985300039]
+Confidence interval of q: [-0.38592928332997567,2.3859292833299754]
+>  ——————————————————————————————————————————————————————————————————————————————
+PARTE: K=3 lambda=65 Ts=.015 RunTime=100
+
+Simulator Results
+q	=	1.0
+w	=	0.0
+Tq	=	0.015384615384615385
+Tw	=	0.0
+         
+Number of Total Events: 13334
+Number of drops aka Rejection Probability: 0.0
+         
+Confidence interval of Tq: [-0.01115384528401256,0.04478461529763203]
+Confidence interval of q: [-0.38592928332997567,2.3859292833299754]
+> ——————————————————————————————————————————————————————————————————————————————
+
+CONFIDENCE INTERVALS COMPARISON AND ANALYSIS: 
+
+The rejection probability for both cases is 0 because the waiting 
+queue is always empty so no event/customer will be rejected. This can
+be explained because w and Tw are both 0. 
+
+The q and Tq simulated for both test case D and E fit in their 
+respective confidence intervals. Here we see that the confidence 
+intervals of q for both cases are the exact same despite the lambda 
+difference, we can conclude that this is due to the fact that the waiting
+queues are empty for for cases and that the same service time is constant. 
+
+Parts B and C respectively have the same settings as test cases D and E.
+These confidence intervals are surely smaller than the confidence intervals 
+of q and Tq obtained in parts B and C. Since the only difference is the constant 
+service time, we can conclude that the this is the reason behind the smaller
+confidence interval range. 
+
+Finally, unlike the rejection probability of .015 and .024 in test cases
+B and C respectively; both D and E have a rejection probability of 0.0.
+This is due to the constant service time. This was expected because w and 
+Tw are 0. This means that no one ever has to wait in the queue, meaning 
+there is always space for another event/customer, ultimately meaning no
+one will be rejected, giving it a probability of 0. 
+——————————————————————————————————————————————————————————————————————————————
+
+Note: The setting for part (a) in this problem is the same as the setting used in problem #1 above. 
+The settings for parts (b) and (c) in this problem are comparable to the settings in parts (b) and (c) for the M/M/1 system you simulated in Assignment #3. 
+
+You may want to compare the results in both cases to make sure they make sense. Do the results make sense?
+
+
+
